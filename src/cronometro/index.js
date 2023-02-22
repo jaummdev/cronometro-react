@@ -28,20 +28,20 @@ export default function Cronometro() {
     let milissegundos = tempo.stateMilissegundos
 
     // Função que incrementa e retorna os states atualizados
-    const incrementa = () =>{
+    const incrementa = () => {
 
-        if(milissegundos === 99){
-            segundos ++
+        if (milissegundos === 99) {
+            segundos++
             milissegundos = 0
         }
-        if(segundos === 60){
-            minutos ++
+        if (segundos === 60) {
+            minutos++
             segundos = 0
         }
 
-        if(minutos === 60){
+        if (minutos === 60) {
 
-            horas ++
+            horas++
             minutos = 0
         }
 
@@ -58,19 +58,19 @@ export default function Cronometro() {
     const conditions = () => {
 
         // Remove os itens que estão zerados da tela
-        if(horas === 0){
+        if (horas === 0) {
             document.getElementById("horas").style.display = "none"
-        }else{
+        } else {
             document.getElementById("horas").style.display = "flex"
         }
 
-        if(minutos === 0){
+        if (minutos === 0) {
             document.getElementById("minutos").style.display = "none"
-        }else{
+        } else {
             document.getElementById("minutos").style.display = "flex"
         }
 
-        if(segundos === 0){
+        if (segundos === 0) {
             document.getElementById("segundos").style.display = "flex"
         }
 
@@ -78,17 +78,17 @@ export default function Cronometro() {
         const BtnStart = document.getElementById("BtnStart")
         const BtnPause = document.getElementById("BtnPause")
 
-        if(isRunning === true){
+        if (isRunning === true) {
             BtnStart.style.display = "none"
             BtnPause.style.display = "flex"
-        }else{
+        } else {
             BtnStart.style.display = "flex"
             BtnPause.style.display = "none"
         }
     }
 
     // Função responsável por rodar a função incrementa a cada 1segundo
-    const iniciar = () =>{
+    const iniciar = () => {
         setIntervalo(setInterval(() => {
             incrementa()
         }, 10))
@@ -96,7 +96,7 @@ export default function Cronometro() {
         setIsRunning(true)
     }
 
-    
+
 
     // Função responsável por pausar o cronômetro
     function pausar() {
@@ -126,26 +126,24 @@ export default function Cronometro() {
         pausar()
 
         setIsRunning(false)
-        
-        
     }
 
     // Inicia o cronometro verificando as condições!
     useEffect(() => {
-        if(isRunning === true){
+        if (isRunning === true) {
             document.title = `${horas + `:` + minutos + `:` + segundos}`
-        }else{
+        } else {
             document.title = "Cronômetro | React JS"
         }
 
         conditions()
     })
 
-    
+
 
     return (
         <div className="Cronometro">
-            
+
             <div className="title">
                 <h1>Cronômetro</h1>
             </div>
@@ -153,22 +151,22 @@ export default function Cronometro() {
             <div className="clock">
                 <div className="display">
 
-                    <span id="horas">{horas < 10 ? "0" + minutos : minutos}:</span>
+                    <span id="horas">{horas < 10 ? "0" + horas : horas}:</span>
                     <span id="minutos">{minutos < 10 ? "0" + minutos : minutos}:</span>
                     <span id="segundos">{segundos < 10 ? "0" + segundos : segundos}</span>
-                    
+
                     <span>.{milissegundos < 10 ? "0" + milissegundos : milissegundos}</span>
                 </div>
-                
+
             </div>
 
             <div className="buttons">
-                <FaPlay 
+                <FaPlay
                     size={60} color="#b700ff"
                     id="BtnStart" onClick={iniciar}
-                 />
+                />
 
-                <FaPause 
+                <FaPause
                     size={60} color="#b700ff"
                     id="BtnPause" onClick={pausar}
                 />
@@ -178,7 +176,7 @@ export default function Cronometro() {
                 />
             </div>
 
-            <h4 style={{color: "white"}}>Acesse Meu <a target="_blank" href="https://github.com/joaosenadev">GitHub</a></h4>
+            <h4 style={{ color: "white" }}>Acesse Meu <a target="_blank" href="https://github.com/joaosenadev">GitHub</a></h4>
         </div>
     );
 }
