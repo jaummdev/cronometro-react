@@ -5,11 +5,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #272727;
 }
-.Cronometro h1{
-    position: fixed;
-    top: 0;
-    font-size: 2em;
+.title h1{
+    font-size: 3em;
     color: #e6e6e6;
 }
 
@@ -17,8 +16,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 20px;
+    color: white;
 }
-
 
 .clock .display span:nth-child(-n + 3){
     font-size: 15em;
@@ -33,17 +36,8 @@
 .buttons{
     display: flex;
     gap: 25px;
-}
-.start{
-    background: #00cc00 !important;
-}
-.pause{
-    background: #f30000 !important;
-}
-.reset{
-    border: 3px solid #f30000 !important;
-    background: transparent;
-    color: #f30000 !important;
+    cursor: pointer;
+    margin-bottom: 100px;
 }
 .buttons button{
     width: 100px;
@@ -53,10 +47,8 @@
     border: 0;
     color: white;
     cursor: pointer;
-    margin-top: 30px;
 }
-.buttons button:hover{
-    transition: .4s;
-    letter-spacing: 2px;
-    transform: scale(1.05);
+.buttons svg:hover{
+    transition: .5s;
+    opacity: .8;
 }
