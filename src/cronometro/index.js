@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import "./styles/styles.css"
 
+// Ícones
+import { FaPause, FaPlay } from "react-icons/fa"
+import { BsArrowCounterclockwise } from "react-icons/bs"
+
 export default function Cronometro() {
 
 
@@ -69,6 +73,18 @@ export default function Cronometro() {
         if(segundos === 0){
             document.getElementById("segundos").style.display = "flex"
         }
+
+        // Remove os botões da tela
+        const BtnStart = document.getElementById("BtnStart")
+        const BtnPause = document.getElementById("BtnPause")
+
+        if(isRunning === true){
+            BtnStart.style.display = "none"
+            BtnPause.style.display = "flex"
+        }else{
+            BtnStart.style.display = "flex"
+            BtnPause.style.display = "none"
+        }
     }
 
     // Função responsável por rodar a função incrementa a cada 1segundo
@@ -111,6 +127,7 @@ export default function Cronometro() {
 
         setIsRunning(false)
         
+        
     }
 
     // Inicia o cronometro verificando as condições!
@@ -128,8 +145,10 @@ export default function Cronometro() {
 
     return (
         <div className="Cronometro">
-
-            <h1>Cronômetro</h1>
+            
+            <div className="title">
+                <h1>Cronômetro</h1>
+            </div>
 
             <div className="clock">
                 <div className="display">
@@ -144,11 +163,20 @@ export default function Cronometro() {
             </div>
 
             <div className="buttons">
-                <button className="start" onClick={iniciar}>Start</button>
-                <button className="pause" onClick={pausar}>Pause</button>
-                <button className="reset" onClick={reiniciar}>Reset</button>
-            </div>
+                <FaPlay 
+                    size={60} color="#b700ff"
+                    id="BtnStart" onClick={iniciar}
+                 />
 
+                <FaPause 
+                    size={60} color="#b700ff"
+                    id="BtnPause" onClick={pausar}
+                />
+
+                <BsArrowCounterclockwise
+                    size={60} color="#a3a3a3" onClick={reiniciar}
+                />
+            </div>
         </div>
     );
 }
