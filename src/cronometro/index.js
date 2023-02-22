@@ -102,14 +102,11 @@ export default function Cronometro() {
     function pausar() {
 
         clearInterval(intervalo)
-        conditions()
-
         setIsRunning(false)
     }
 
     // Função responsável por zerar os valores do cronômetro
     const reiniciar = () => {
-        conditions()
 
         setTempo({
             stateHoras: 0,
@@ -131,7 +128,7 @@ export default function Cronometro() {
     // Inicia o cronometro verificando as condições!
     useEffect(() => {
         if (isRunning === true) {
-            document.title = `${horas + `:` + minutos + `:` + segundos}`
+            document.title = `${horas + `:` + minutos + `.` + segundos}`
         } else {
             document.title = "Cronômetro | React JS"
         }
@@ -176,7 +173,7 @@ export default function Cronometro() {
                 />
             </div>
 
-            <h4 style={{ color: "white" }}>Acesse Meu <a target="_blank" href="https://github.com/joaosenadev">GitHub</a></h4>
+            <h4 style={{ color: "white" }}>Acesse Meu <a style={{color: "#b700ff", textDecoration: "none"}} target="_blank" href="https://github.com/joaosenadev">GitHub</a></h4>
         </div>
     );
 }
