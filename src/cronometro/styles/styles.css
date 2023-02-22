@@ -1,0 +1,62 @@
+.Cronometro{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.Cronometro h1{
+    position: fixed;
+    top: 0;
+    font-size: 2em;
+    color: #e6e6e6;
+}
+
+.display{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.clock .display span:nth-child(-n + 3){
+    font-size: 15em;
+}
+.clock .display span:nth-child(4){
+    font-size: 5em;
+    margin-left: 5px;
+}
+
+
+
+.buttons{
+    display: flex;
+    gap: 25px;
+}
+.start{
+    background: #00cc00 !important;
+}
+.pause{
+    background: #f30000 !important;
+}
+.reset{
+    border: 3px solid #f30000 !important;
+    background: transparent;
+    color: #f30000 !important;
+}
+.buttons button{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.buttons button:hover{
+    transition: .4s;
+    letter-spacing: 2px;
+    transform: scale(1.05);
+}
