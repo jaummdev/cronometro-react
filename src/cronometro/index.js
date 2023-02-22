@@ -177,6 +177,8 @@ export default function Cronometro() {
                     size={60} color="#a3a3a3" onClick={reiniciar}
                 />
             </div>
+
+            <h4 style={{color: "white"}}>Acesse Meu <a target="_blank" href="https://github.com/joaosenadev">GitHub</a></h4>
         </div>
     );
 }
