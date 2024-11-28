@@ -173,7 +173,7 @@ export default function Cronometro() {
                 />
             </div>
 
-            <h4 style={{ color: "white" }}>Acesse Meu <a style={{color: "#b700ff", textDecoration: "none"}} target="_blank" href="https://github.com/joaosenadev">GitHub</a></h4>
+            <h4 style={{ color: "white" }}>Acesse Meu <a style={{color: "#b700ff", textDecoration: "none"}} target="_blank" href="https://github.com/jaummdev">GitHub</a></h4>
         </div>
     );
 }
